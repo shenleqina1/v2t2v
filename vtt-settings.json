@@ -1,0 +1,22 @@
+{
+  "model_path": "D:/v 2 tts/vosk-model-small-cn-0.22",
+  "inference_mode": "服务器推理",
+  "server_host": "192.168.0.69",
+  "server_port": "8765",
+  "hotkey": "B",
+  "ptt_hotkey": "鼠标侧键1",
+  "emergency_hotkey": "鼠标侧键2",
+  "microphone_name": "麦克风 (WO Mic Device) (编号 3)",
+  "show_overlay": false,
+  "ptt_enabled": true,
+  "tts_rate": 1.0,
+  "tts_volume": 0.9931506849315068,
+  "tts_engine_label": "Windows SAPI",
+  "speaker_label": "VoiceMeeter Aux Input (VB-Audio VoiceMeeter AUX VAIO)",
+  "voice_label": "Microsoft Huihui Desktop - Chinese (Simplified)",
+  "language_label": "zh-CN",
+  "tts_engine_id": "sapi",
+  "speaker_token": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput\\TokenEnums\\MMAudioOut\\{0.0.0.00000000}.{b640fc1e-acb0-4622-8386-7aed180a5b24}",
+  "voice_token": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices\\Tokens\\TTS_MS_ZH-CN_HUIHUI_11.0",
+  "language_value": "zh-CN"
+}
