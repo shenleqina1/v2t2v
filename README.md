@@ -45,11 +45,12 @@ V2T2V（Voice-to-Text-to-Voice）是一套面向 Windows 平台的语音工具�
 
 1. **创建虚拟环境并安装依赖**
    ```powershell
-   cd E:\v2t2v-main
+  cd \v2t2v-main
    python -m venv .venv
    .\.venv\Scripts\Activate.ps1
    pip install --upgrade pip
    pip install -r requirements.txt
+   python vtt.py
    ```
 
 2. **准备模型**（见下一节）。
@@ -63,10 +64,24 @@ V2T2V（Voice-to-Text-to-Voice）是一套面向 Windows 平台的语音工具�
 - 默认从 `model-ct2/` 读取 ctranslate2 加速模型，若不存在则回退到 `model/`。
 - 可从 [Hugging Face](https://huggingface.co/Systran) 下载 `faster-whisper-small/medium/large-v2` 等模型，解压后放到 `model-ct2/`。
 - 若需原版 OpenAI Whisper，放入 `model/` 并通过启动参数 `--model` 指定路径。
+  - 推荐下载（大小为解压后近似值，显存为 GPU 推理参考）：
+
+    | 模型 | 大小 | 性能特点 | 计算资源 |
+    | --- | --- | --- | --- |
+    | [faster-whisper-large-v2](https://huggingface.co/Systran/faster-whisper-large-v2) | ≈ 11 GB | 最佳精度，流式延迟略高 | 需要 ≥12 GB VRAM；CPU 模式需高性能多核 |
+    | [faster-whisper-medium](https://huggingface.co/Systran/faster-whisper-medium) | ≈ 5.5 GB | 精度与速度平衡 | 建议 8 GB VRAM；CPU 推理需 AVX2、线程数 ≥8 |
+    | [faster-whisper-small](https://huggingface.co/Systran/faster-whisper-small) | ≈ 2.9 GB | 适合中端显卡或实时需求 | 4–6 GB VRAM 可流畅；CPU 模式实时性一般 |
+    | [faster-whisper-base](https://huggingface.co/Systran/faster-whisper-base) | ≈ 1.6 GB | 轻量快速，精度略低 | 4 GB VRAM 或纯 CPU 均可运行 |
 
 ### Vosk（客户端本地识别）
 - 将中文模型解压到 `vosk-model-cn-0.22/` 或 `vosk-model-small-cn-0.22/`。
 - 在客户端 UI 中指定模型目录后即可离线识别。
+  - 推荐下载（大小为解压后近似值）：
+
+    | 模型 | 大小 | 性能特点 | 占用建议 |
+    | --- | --- | --- | --- |
+    | [vosk-model-cn-0.22.zip](https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip) | ≈ 3.8 GB | 全量中文词汇，高精度 | 运行时常驻内存约 1.5 GB，适合桌面 CPU |
+    | [vosk-model-small-cn-0.22.zip](https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip) | ≈ 50 MB（压缩包），解压后 ≈ 210 MB | 轻量，识别速度快但词汇有限 | 仅占用数百 MB 内存，适合低配设备 |
 
 ---
 
