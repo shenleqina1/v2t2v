@@ -45,7 +45,7 @@ V2T2V（Voice-to-Text-to-Voice）是一套面向 Windows 平台的语音工具�
 
 1. **创建虚拟环境并安装依赖**
    ```powershell
-  cd \v2t2v-main
+   cd \v2t2v-main
    python -m venv .venv
    .\.venv\Scripts\Activate.ps1
    pip install --upgrade pip
